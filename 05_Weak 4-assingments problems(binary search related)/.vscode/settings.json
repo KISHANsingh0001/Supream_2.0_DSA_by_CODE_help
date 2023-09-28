@@ -1,0 +1,11 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "cSpell.words": [
+        "differance",
+        "Mirko",
+        "Sawblade"
+    ],
+    "files.associations": {
+        "vector": "cpp"
+    }
+}

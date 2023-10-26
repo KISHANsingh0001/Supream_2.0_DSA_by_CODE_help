@@ -11,7 +11,7 @@ public:
 // this is old type to create prerametrized constructor..
     abc(int _x, int _y, int _z = 0)
     {                                
-        x = _x;
+        x = _x;+
         y = new int(_y);
         z = _z;
     }

@@ -1,4 +1,4 @@
-// implimentation of the queue
+//                                             implimentation of the queue data structure
 #include <iostream>
 using namespace std;
 class Queue
@@ -89,35 +89,40 @@ public:
             return false;
         }
     }
-    // get rear element 
-    int getRear(){
-        if(rear == -1){
+    // get rear element
+    int getRear()
+    {
+        if (rear == -1)
+        {
             return -1;
         }
-        else{
+        else
+        {
             return arr[rear];
         }
     }
 
-    void printQ(){
-        for(int i = 0 ; i<size ; i++){
-            cout<<arr[i]<<" ";
+    void printQ()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            cout << arr[i] << " ";
         }
-        cout<<endl;
+        cout << endl;
     }
 };
 int main()
 {
-   Queue q(4);
-   q.push(10);
-   q.push(20);
-   q.push(30);
-   q.push(40);
-   q.pop();
-   cout<<"Size of the Queue is: "<<q.getSize()<<endl;
-   q.printQ();
-   q.pop();
-     cout<<"Size of the Queue is: "<<q.getSize()<<endl;
-   cout<<"Rear element of the Queue: "<<q.getRear()<<endl;
+    Queue q(4);
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
+    q.pop();
+    cout << "Size of the Queue is: " << q.getSize() << endl;
+    q.printQ();
+    q.pop();
+    cout << "Size of the Queue is: " << q.getSize() << endl;
+    cout << "Rear element of the Queue: " << q.getRear() << endl;
     return 0;
 }

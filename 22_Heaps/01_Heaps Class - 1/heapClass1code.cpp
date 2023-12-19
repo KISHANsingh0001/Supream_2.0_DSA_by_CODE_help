@@ -40,9 +40,10 @@ class Heap{
       for(int i=1; i<=size; i++) {
          cout << arr[i] << " ";
      }
+     cout<<endl;
     }
 
-    int deleteFromHeap() {
+    int deleteFromHeap(){
       int answer = arr[1];
       //replacement
       arr[1] = arr[size];
@@ -122,22 +123,29 @@ int main() {
   }
   cout << endl;
 
-  heapSort(arr, n);
-    cout << "printing heap: " << endl;
-    for(int i=1; i<=6; i++) {
-      cout << arr[i] << " ";
-    }
-    cout << endl;
+  // heapSort(arr, n);
+  //   cout << "printing heap: " << endl;
+  //   for(int i=1; i<=6; i++) {
+  //     cout << arr[i] << " ";
+  //   }
+  //   cout << endl;
   
 
 
   // Heap h(20);
   // //insertion
-  // h.insert(10);
-  // h.insert(20);
-  // h.insert(5);
-  // h.insert(11);
-  // h.insert(6);
+  // h.insert(100);
+  // h.insert(4);
+  // h.insert(3);
+  // h.insert(1);
+  // h.insert(500);
+  //   h.printHeap();
+  //   int ans = h.deleteFromHeap();
+  //   cout<<"Answer is: "<<ans<<endl;
+  //   h.printHeap();
+  //   int ans1 = h.deleteFromHeap();
+  //   cout<<"Answer is: "<<ans1<<endl;
+  //   h.printHeap();
 
   // cout << "Printing the content of heap: " << endl;
   // h.printHeap();

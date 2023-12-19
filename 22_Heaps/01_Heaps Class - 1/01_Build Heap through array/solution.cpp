@@ -34,7 +34,7 @@ void buildHeap(int arr[], int n)
 
 int main()
 {
-
+    //  IMP NOTE:- O(N) Size ke array ko ager heap main conver karna hai to uski time complxity O(N) hoti hai..........
     int arr[8] = {-1, 45, 23, 42, 13, 53, 13, 52};
     int n = 8;
     buildHeap(arr, n);
@@ -42,15 +42,5 @@ int main()
     {
         cout << arr[i] << " ";
     }
-
-    // Heap h(15);
-    // h.push(10);
-    // h.push(20);
-    // h.push(30);
-    // h.push(40);
-    // h.print();
-    // h.deleteFromHeap();
-    // //cout<<"Deleted element is: "<<ans<<endl;
-    // h.print();
     return 0;
 }

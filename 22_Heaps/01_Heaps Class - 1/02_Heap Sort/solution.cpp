@@ -1,8 +1,4 @@
-// Why it takes O(N) Time complexity
-// For each non-leaf node, there is a constant amount of work done (comparisons and swaps) during the heapify operation.
-// The number of non-leaf nodes in a binary heap of size n is approximately n/2. This is because a binary heap is a 
-// complete binary tree, and the number of leaves is roughly half of the total number of nodes.
-// Therefore, the number of operations for each non-leaf node is constant.
+
 #include <iostream>
 using namespace std;
 
@@ -48,7 +44,6 @@ void heapSort(int arr[] , int n){
 
 int main()
 {
-    //  IMP NOTE:- O(N) Size ke array ko ager heap main conver karna hai to uski time complxity O(N) hoti hai..........
     int arr[] = {-1,5,10,15,20,25,12};
     int n = 6;
     buildHeap(arr, n);
@@ -58,7 +53,7 @@ int main()
         cout << arr[i] << " ";
     }
     cout<<endl;
-    heapSort(arr , n);
+    heapSort(arr , n);  // Time complexity of the heap sort is O(nlogn) hoti hai.........................
      for (int i = 1; i <= 6; i++)
     {
         cout << arr[i] << " ";

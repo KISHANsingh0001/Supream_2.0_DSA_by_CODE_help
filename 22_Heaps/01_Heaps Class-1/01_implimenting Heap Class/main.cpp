@@ -1,3 +1,8 @@
+// Heap Sort :- Heap sort is a comparison-based sorting algorithm that uses a binary heap data structure to build 
+                // a max-heap or a min-heap. In the case of heap sort, it typically builds a max-heap. The algorithm 
+                // divides the input into a sorted and an unsorted region, repeatedly extracting the maximum element 
+                // from the heap and placing it in the sorted region. This process is repeated until the entire input 
+                // is sorted. Heap sort has a time complexity of O(n log n), making it an efficient sorting algorithm.
 #include <iostream>
 using namespace std;
 

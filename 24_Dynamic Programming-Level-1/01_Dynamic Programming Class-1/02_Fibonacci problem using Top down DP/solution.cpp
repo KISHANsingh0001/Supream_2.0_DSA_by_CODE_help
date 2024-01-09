@@ -23,6 +23,6 @@ int solveUsingMemoisation(int n, vector<int> &dp)
 int main()
 {
     int n = 6;
-    cout << n << "'th fibonacci number is: " << solveUsingRecursion(n);
+    cout << n << "'th fibonacci number is: " << solveUsingMemoisation(n);
     return 0;
 }

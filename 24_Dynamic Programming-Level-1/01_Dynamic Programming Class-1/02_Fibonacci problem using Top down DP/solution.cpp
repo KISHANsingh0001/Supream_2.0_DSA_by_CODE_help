@@ -22,7 +22,7 @@ int solveUsingMemoisation(int n, vector<int> &dp)
 }
 int main()
 {
-    int n = 6;
+    int n = 10;
     cout << n << "'th fibonacci number is: " << solveUsingMemoisation(n);
     return 0;
 }

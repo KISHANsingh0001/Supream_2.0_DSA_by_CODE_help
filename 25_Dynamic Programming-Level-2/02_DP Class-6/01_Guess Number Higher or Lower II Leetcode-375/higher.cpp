@@ -1,3 +1,8 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include <climits>
+using namespace std;
 class Solution {
 public:
     int solveUsingRecursion(int start, int end ) {
@@ -58,3 +63,11 @@ public:
         return ans;
     }
 };
+int main()
+{
+    Solution s;
+    int input = 10;
+    int ans = s.getMoneyAmount(input);
+    cout<<"the minimum amount of money you need to guarantee a win regardless "<<ans<<endl;
+    return 0;
+}

@@ -1,3 +1,9 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<climits>
+#include<map>
+using namespace std;
 class Solution {
 public:
     int solveUsingRecursion(vector<int>& arr, map< pair<int,int>, int >& maxi, int s, int e) {
@@ -78,6 +84,14 @@ public:
         vector<vector<int> > dp(n+1, vector<int>(n+1, -1));
         int ans = solveUsingTabulation(arr,maxi);
         return ans;
-
     }
 };
+
+int main()
+{
+    Solution s;
+    vector<int>arr = {6,2,4};
+    int ans = s.mctFromLeafValues(arr);
+    cout<<"the smallest possible sum of the values of each non-leaf node. It is: "<<ans<<endl;
+    return 0;
+}

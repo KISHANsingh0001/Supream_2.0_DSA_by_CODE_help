@@ -17,16 +17,16 @@ int solveUsingRecursion(int capacity, int wt[], int profit[], int index, int n) 
 	int ans = max(include, exclude);
 	return ans;
 }
-void printdparray(vector<vector<int> >& dp) {
-	cout << endl << endl << "printing dp array" << endl;
-	for(int i=0; i<dp.size(); i++) {
-		for(int j=0; j<dp[0].size(); j++) {
-			cout << dp[i][j] << " ";
-		}
-		cout << endl;
-	}
-	cout << endl << endl;
-}
+// void printdparray(vector<vector<int> >& dp) {
+// 	cout << endl << endl << "printing dp array" << endl;
+// 	for(int i=0; i<dp.size(); i++) {
+// 		for(int j=0; j<dp[0].size(); j++) {
+// 			cout << dp[i][j] << " ";
+// 		}
+// 		cout << endl;
+// 	}
+// 	cout << endl << endl;
+// }
 int solveUsingMem(int capacity, int wt[], int profit[], int index, int n, vector<vector<int> >& dp) {
 	//base case
 	if(index >=n) {

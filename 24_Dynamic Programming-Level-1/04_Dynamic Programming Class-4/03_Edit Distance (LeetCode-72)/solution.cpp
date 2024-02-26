@@ -1,7 +1,7 @@
 #include <iostream>
-#include<vector>
-#include<string>
-#include<algorithm>
+#include <vector>
+#include <string>
+#include <algorithm>
 using namespace std;
 //  First Method : solve using recursion but it gives TLE...........
 int solveUsingRec(string &a, string &b, int i, int j)
@@ -119,6 +119,54 @@ int solveUsingTabu(string &a, string &b)
     }
     return dp[0][0];
 }
+//  Fourth Method : solve using Bottom up DP (Tabulation Method + space Optimization)..........
+int solveUsingTabuSO(string &a, string &b)
+{
+    vector<int> curr(a.length() + 1, 0);
+    vector<int> next(a.length() + 1, 0);
+    // abhi ke liye bhool jao esko
+    // for (int col = 0; col <= b.length(); col++)
+    // {
+    //     dp[a.length()][col] = b.length() - col;
+    // }
+    // toh mujhe curr col ke last vale dabba me b.length()-j save karna hai
+    for (int row = 0; row <= a.length(); row++)
+    {
+        next[row] = a.length() - row;
+    }
+
+    for (int col = b.length() - 1; col >= 0; col--)
+    {
+        // IMP.....har ek new clumn ke liye(curr) last box ko muhje fill karna hai
+        curr[a.length()] = b.length() - col;
+        for (int row = a.length() - 1; row >= 0; row--)
+        {
+
+            int ans = 0;
+            if (a[row] == b[col])
+            {
+                ans = 0 + next[row + 1];
+            }
+            else
+            {
+                // Does not match vala case
+                // we count 3 operations
+                // 1)Replace
+                int replaceOp = 1 + next[row + 1];
+                // 2)Delete
+                int deleteOp = 1 + curr[row+1];
+                // 2)insert
+                int insertOp = 1 + next[row];
+                // Find out the minimum operation
+                ans = min(insertOp, min(deleteOp, replaceOp));
+            }
+            curr[row] = ans;
+        }
+        // shifting
+        next = curr;
+    }
+    return next[0];
+}
 int main()
 {
     string word1 = "horse";
@@ -128,7 +176,7 @@ int main()
     // step 1 : Create a dp array
     // vector<vector<int>> dp(word1.length() + 1,vector<int>(word2.length() + 1, -1));
     // int ans = solveUsingRec(word1 , word2 , i , j);
-    int ans = solveUsingTabu(word1, word2);
-    cout<<"minimum number of operations required is : "<<ans<<endl;
+    int ans = solveUsingTabuSO(word1, word2);
+    cout << "minimum number of operations required is : " << ans << endl;
     return 0;
 }

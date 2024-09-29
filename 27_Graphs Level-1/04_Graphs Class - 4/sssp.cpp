@@ -5,6 +5,7 @@
 #include <stack>
 #include <limits.h>
 #include <vector>
+#include <set>
 using namespace std;
 class Graph
 {
@@ -84,6 +85,7 @@ public:
             cout << i << " ";
         }
     }
+
     void printAdjList()
     {
         for (auto i : adj)
@@ -96,18 +98,69 @@ public:
             cout << "}" << endl;
         }
     }
+
+    void dijkstraShortestPath(int n, int src, int dist)
+    {
+        vector<int> dis(n + 1, INT_MAX);
+
+        set<pair<int, int>> st;
+        // initial state
+        st.insert({0, src});
+        dist[src] = 0;
+        
+        // distance updation logic
+        while(!st.empty()){
+            auto topEle = st.begin();
+            pair<int,int> topPair = *topEle;
+
+            int topDist = topPair.first;
+            int topNode = topPair.second;
+            // remove top node from the set
+            st.erase(st.begin());
+
+            // update distence of nbr 
+            for(auto &nbrPair : adj[topNode]){
+                int nbrNode = nbrPair.first;
+                int nbrDist = nbrPair.second;
+                if(topDist + nbrDist < dist[nbrNode]){
+                    // found a new shorter distence
+                    // now update: 
+                    // set ki entry
+                    auto previousEntry = st.find({dis[nbrNode] , nbrNode});
+                    if(previousEntry != st.end()){
+                        st.erase(previousEntry);
+                    }
+
+                    // dist ka array
+                    dist[nbrNode] = topDist + nbrDist ;
+                    st.insert({dist[nbrNode] , nbrNode});
+                }
+            }   
+        }
+
+    }
 };
 
 int main()
 {
     Graph g;
-    g.addEdge(0, 1, 5, 1);
-    g.addEdge(0, 2, 3, 1);
-    g.addEdge(2, 1, 2, 1);
-    g.addEdge(1, 3, 3, 1);
-    g.addEdge(2, 3, 5, 1);
-    g.addEdge(2, 4, 6, 1);
-    g.addEdge(4, 3, 1, 1);
+    // g.addEdge(0, 1, 5, 1);
+    // g.addEdge(0, 2, 3, 1);
+    // g.addEdge(2, 1, 2, 1);
+    // g.addEdge(1, 3, 3, 1);
+    // g.addEdge(2, 3, 5, 1);
+    // g.addEdge(2, 4, 6, 1);
+    // g.addEdge(4, 3, 1, 1);
+
+    g.addEdge(1,6,14,0);
+	g.addEdge(1,3,9,0);
+	g.addEdge(1,2,7,0);
+	g.addEdge(2,3,10,0);
+	g.addEdge(2,4,15,0);
+	g.addEdge(3,4,11,0);
+	g.addEdge(6,3,2,0);
+	g.addEdge(6,5,9,0);
+	g.addEdge(5,4,6,0);
     int n = 5;
     int src = 0;
     stack<int> topo;
@@ -119,6 +172,6 @@ int main()
     //     cout<<topo.top()<<endl;
     //     topo.pop();
 
-    g.shortestPathDFS(topo , n);
+    g.shortestPathDFS(topo, n);
     return 0;
 }
